@@ -6,19 +6,19 @@ Pastey is a CLIent for Catalyst internal pastebin.
 
 ### Example
 
-    pastey "this is some text"
+    $ pastey "this is some text"
     http://paste.wgtn.cat-it.co.nz/#abcdefghijkl
 
 ### Paste a file
 
 @TODO
 
-    pastey words.txt
+    $ pastey words.txt
     http://paste.wgtn.cat-it.co.nz/#bcdefghijklm
 
 ### Stdin
 
 @TODO
 
-    pastey file.txt
+    $ ls | pastey
     http://paste.wgtn.cat-it.co.nz/#cdefghijklmn
