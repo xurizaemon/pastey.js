@@ -1,7 +1,7 @@
 {
   "name": "pastey",
   "version": "0.0.1",
-  "description": "Pastey is a CLIent for Catalyst internal pastebin.",
+  "description": "Pastey is a client for an encrypted pastebin.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +11,7 @@
     "url": "git+https://github.com/xurizaemon/pastey.git"
   },
   "keywords": [
-    "catalyst",
-    "pastey"
+    "pastey", "pastebin", "encrypted", "client"
   ],
   "author": "Chris Burgess <chris.burgess@catalyst.net.nz>",
   "license": "MIT",

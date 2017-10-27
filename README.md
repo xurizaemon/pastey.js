@@ -1,24 +1,36 @@
 # Pastey
 
-Pastey is a CLIent for Catalyst internal pastebin.
+Pastey is a client for an encrypted pastebin like [fincham/paste](https://github.com/fincham/paste).
+
+## Dependencies
+
+    node, npm
+
+## Installation
+
+    npm i -g pastey
+
+## Configuration
+
+Set environment variable `PASTEYURL`.
 
 ## Usage
 
 ### Example
 
     $ pastey "this is some text"
-    http://paste.wgtn.cat-it.co.nz/ec43c7#4ljVqnjpuRSmVrauLx/woA
+    http://pastebin.example/ec43c7#4ljVqnjpuRSmVrauLx/woA
 
 ### Paste a file
 
 @TODO
 
     $ pastey words.txt
-    http://paste.wgtn.cat-it.co.nz/#bcdefghijklm
+    http://pastebin.example/#bcdefghijklm
 
 ### Stdin
 
 @TODO
 
     $ ls | pastey
-    http://paste.wgtn.cat-it.co.nz/#cdefghijklmn
+    http://pastebin.example/#cdefghijklmn
