@@ -7,7 +7,7 @@ Pastey is a CLIent for Catalyst internal pastebin.
 ### Example
 
     $ pastey "this is some text"
-    http://paste.wgtn.cat-it.co.nz/#abcdefghijkl
+    http://paste.wgtn.cat-it.co.nz/ec43c7#4ljVqnjpuRSmVrauLx/woA
 
 ### Paste a file
 

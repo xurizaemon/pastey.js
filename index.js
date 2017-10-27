@@ -24,8 +24,7 @@ function encrypt(content, mimetype) {
       console.log('error', err);
     }
     else {
-      console.log('body', body);
-      console.log('response', response);
+      console.log(response.headers.location + '#' + hash);
     }
   });
 
