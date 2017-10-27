@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "commander": "^2.11.0",
+    "request": "^2.83.0",
     "sjcl": "^1.0.7"
   }
 }
