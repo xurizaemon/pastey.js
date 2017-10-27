@@ -22,5 +22,9 @@
   "homepage": "https://github.com/xurizaemon/pastey#readme",
   "bin": {
     "pastey": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "sjcl": "^1.0.7"
   }
 }
