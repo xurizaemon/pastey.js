@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/xurizaemon/pastey/issues"
   },
-  "homepage": "https://github.com/xurizaemon/pastey#readme"
+  "homepage": "https://github.com/xurizaemon/pastey#readme",
+  "bin": {
+    "pastey": "./index.js"
+  }
 }
