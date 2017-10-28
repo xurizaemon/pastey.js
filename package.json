@@ -1,6 +1,6 @@
 {
   "name": "pastey",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pastey is a client for an encrypted pastebin.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,10 @@
     "url": "git+https://github.com/xurizaemon/pastey.git"
   },
   "keywords": [
-    "pastey", "pastebin", "encrypted", "client"
+    "pastey",
+    "pastebin",
+    "encrypted",
+    "client"
   ],
   "author": "Chris Burgess <chris.burgess@catalyst.net.nz>",
   "license": "MIT",
@@ -24,7 +27,7 @@
   },
   "dependencies": {
     "commander": "^2.11.0",
-    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
     "sjcl": "^1.0.7"
   }
 }

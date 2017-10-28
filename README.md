@@ -34,3 +34,9 @@ Set environment variable `PASTEYURL`.
 
     $ ls | pastey
     http://pastebin.example/#cdefghijklmn
+
+## TODO
+
+* Rather if pastey.submit() returned the updated paste object, rather than a promise which will resolve to same.
+* Supply paste content from stdin. (Not sure how to do this with Commander!)
+* Read a filename argument, read the file.
