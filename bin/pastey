@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+
+/* jshint esversion: 6 */
+
 'use strict';
 
 const meow = require('meow');
@@ -13,24 +16,24 @@ const log = console.log;
 const config = new Conf();
 
 const cli = meow(`
-	Usage
-	  $ pastey <input>
+  Usage
+    $ pastey <input>
 
-	Options
-	  --url, -u    Server URL for paste
+  Options
+    --url, -u    Server URL for paste
     --config, -c Configure Pastey by writing --url to ~/.pastey.yml
 
-	Examples
+  Examples
     $ pastey --config --url http://localhost:5000
     $ pastey --url filename.txt
     $ tail foo.log | pastey
 `, {
-	flags: {
-		url: {
-			type: 'string',
-			alias: 'u'
-		}
-	}
+  flags: {
+    url: {
+      type: 'string',
+      alias: 'u'
+    }
+  }
 });
 
 if ('config' in cli.flags) {
@@ -39,7 +42,7 @@ if ('config' in cli.flags) {
     log(cli.help);
     return;
   }
-  config.set('url', cli.flags['url']);
+  config.set('url', cli.flags.url);
   log(chalk.green('Config saved'));
 }
 
@@ -49,14 +52,14 @@ let str = '';
 if (cli.input.length == 0 || cli.input[0] == '--') {
   getStdin()
     .then(str => {
-  		if (typeof str === 'undefined' || str === '') {
-  			if (!('config' in cli.flags)) {
-  				console.log(chalk.red.bold('No input from stdin'));
-  			}
-  			// @TODO throw error code
-  			return;
-  		}
-  		// console.log(chalk.green.bold('Pasting from stdin'));
+      if (typeof str === 'undefined' || str === '') {
+        if (!('config' in cli.flags)) {
+          console.log(chalk.red.bold('No input from stdin'));
+        }
+        // @TODO throw error code
+        return;
+      }
+      // console.log(chalk.green.bold('Pasting from stdin'));
       let data = pastey.encrypt(str, 'text/plain');
       pastey.submit(data, url)
         .then(function(result) {
@@ -73,7 +76,7 @@ else {
   let mimetype = mime.lookup(filename);
   let data = pastey.encrypt(contents, mimetype);
   pastey.submit(data, url)
-	        .then(function(result) {
-	          console.log(chalk.white.bold(result.url));
-	        });
+          .then(function(result) {
+            console.log(chalk.white.bold(result.url));
+          });
 }

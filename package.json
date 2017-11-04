@@ -34,5 +34,8 @@
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "sjcl": "^1.0.7"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5"
   }
 }
