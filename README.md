@@ -6,7 +6,7 @@ An encrypted pastebin means the pastebin service doesn't see the pastebin data -
 
 ## Dependencies
 
-    node, npm
+    node (6+), npm
 
 ## Installation
 
