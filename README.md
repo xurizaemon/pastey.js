@@ -14,31 +14,27 @@ An encrypted pastebin means the pastebin service doesn't see the pastebin data -
 
 ## Configuration
 
-Set environment variable `PASTEYURL`.
+The only configuration so far is the URL of your paste server. Perhaps your company runs a paste server, or you can run [fincham/paste](https://github.com/fincham/paste) yourself.
+
+To configure:
+
+    $ pastey --config --url http://pastey.example
+
+This will save the configuration to ~/.config/pastey-nodejs/config.json for future calls. If no URL config is set via that file, Pastey tries the environment variable `PASTEYURL` or finally http://localhost:5000
 
 ## Usage
 
 ### Example
 
     $ pastey "this is some text"
-    http://pastebin.example/ec43c7#4ljVqnjpuRSmVrauLx/woA
+    http://pastey.example/ec43c7#4ljVqnjpuRSmVrauLx/woA
 
 ### Paste a file
 
-@TODO
-
     $ pastey words.txt
-    http://pastebin.example/#bcdefghijklm
+    http://pastey.example/gu4SV275ThOGBNXl#0IURwZ2WC7VgvqHSJSfdqA
 
 ### Stdin
 
-@TODO
-
     $ ls | pastey
-    http://pastebin.example/#cdefghijklmn
-
-## TODO
-
-* Rather if pastey.submit() returned the updated paste object, rather than a promise which will resolve to same.
-* Supply paste content from stdin. (Not sure how to do this with Commander!)
-* Read a filename argument, read the file.
+    http://pastey.example/vAkHQcdV0R8pfGkS#lmi1jUgpsNtdBgiX0pAw/g
