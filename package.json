@@ -1,6 +1,6 @@
 {
   "name": "pastey",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Pastey is a client for an encrypted pastebin.",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,7 @@
   },
   "homepage": "https://github.com/xurizaemon/pastey#readme",
   "bin": {
-    "pastey": "./bin/pastey",
-    "regex": "./bin/regex"
+    "pastey": "./bin/pastey"
   },
   "dependencies": {
     "chalk": "^2.3.0",
@@ -32,6 +31,7 @@
     "get-stdin": "^5.0.1",
     "meow": "^3.7.0",
     "mime-types": "^2.1.17",
+    "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "sjcl": "^1.0.7"
   }
