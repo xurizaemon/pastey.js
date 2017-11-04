@@ -56,6 +56,7 @@ if (cli.input.length == 0 || cli.input[0] == '--') {
       if (typeof str === 'undefined' || str === '') {
         if (!('config' in cli.flags)) {
           log(chalk.red.bold('No input from stdin'));
+          log(cli.help);
         }
         // @TODO throw error code
         return;
@@ -74,15 +75,15 @@ if (cli.input.length == 0 || cli.input[0] == '--') {
 else {
   let filename = cli.input[0];
   let mimetype = mime.lookup(filename);
-	let contents = '';
-	if (mimetype.startsWith('image/')) {
-		let datauri = new Datauri(filename);
-		contents = datauri.content;
-	}
-	else {
-		contents = fs.readFileSync(filename, 'utf8');
-	}
-	let data = pastey.encrypt(contents, mimetype);
+  let contents = '';
+  if (mimetype.startsWith('image/')) {
+    let datauri = new Datauri(filename);
+    contents = datauri.content;
+  }
+  else {
+    contents = fs.readFileSync(filename, 'utf8');
+  }
+  let data = pastey.encrypt(contents, mimetype);
   pastey.submit(data, url)
           .then(function(result) {
             log(chalk.white.bold(result.url));

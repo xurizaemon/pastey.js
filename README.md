@@ -34,7 +34,7 @@ This will save the configuration to ~/.config/pastey-nodejs/config.json for futu
     $ pastey words.txt
     http://pastey.example/gu4SV275ThOGBNXl#0IURwZ2WC7VgvqHSJSfdqA
 
-### Stdin
+### Stdin (text only)
 
     $ ls | pastey
     http://pastey.example/vAkHQcdV0R8pfGkS#lmi1jUgpsNtdBgiX0pAw/g
