@@ -38,3 +38,7 @@ This will save the configuration to ~/.config/pastey-nodejs/config.json for futu
 
     $ ls | pastey
     http://pastey.example/vAkHQcdV0R8pfGkS#lmi1jUgpsNtdBgiX0pAw/g
+
+## Alternatives
+
+* [PrivateBin/PrivateBin](https://github.com/PrivateBin/PrivateBin) + [PrivateBin/PrivateBin-Cli](https://github.com/PrivateBin/PrivateBin-Cli)
