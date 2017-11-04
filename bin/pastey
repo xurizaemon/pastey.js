@@ -1,46 +1,79 @@
 #!/usr/bin/env node
-
 'use strict';
 
-let program = require('commander'),
-  fs = require('fs'),
-  pastey = require('../lib/pastey.js');
+const meow = require('meow');
+const chalk = require('chalk');
+const fs = require('fs');
+const Conf = require('conf');
+const getStdin = require('get-stdin');
+const pastey = require('../lib/pastey.js');
+const mime = require('mime-types');
+const log = console.log;
 
-let content = '';
+const config = new Conf();
 
-let pasteyurl = process.env.PASTEYURL || 'http://localhost:5000/';
+const cli = meow(`
+	Usage
+	  $ pastey <input>
 
-program
-  // .command('pastey')
-  .arguments('<filename>')
-  // .arguments('pastey [filename]')
-  .option('-h, --help', 'Show help')
-  .option('-u, --url', 'URL of paste server')
-  .action(function(filename) {
-    console.log(content, 'filename');
-    console.log(process.argv);
-    let encrypted = pastey.encrypt(content, 'text/plain');
-    pastey.submit(encrypted, pasteyurl)
-      .then(function(result) {
-        console.log(result.url);
-      });
-  });
+	Options
+	  --url, -u    Server URL for paste
+    --config, -c Configure Pastey by writing --url to ~/.pastey.yml
 
-if (process.stdin.isTTY) {
-  console.log('isTTY');
-  console.log(content);
-  program.parse(process.argv);
+	Examples
+    $ pastey --config --url http://localhost:5000
+    $ pastey --url filename.txt
+    $ tail foo.log | pastey
+`, {
+	flags: {
+		url: {
+			type: 'string',
+			alias: 'u'
+		}
+	}
+});
+
+if ('config' in cli.flags) {
+  if (!('url' in cli.flags)) {
+    log(chalk.red.bold('  URL is required to configure Pastey'));
+    log(cli.help);
+    return;
+  }
+  config.set('url', cli.flags['url']);
+  log(chalk.green('Config saved'));
+}
+
+let url = config.get('url', process.env.PASTEYURL || 'http://localhost:5000/');
+let str = '';
+
+if (cli.input.length == 0 || cli.input[0] == '--') {
+  getStdin()
+    .then(str => {
+  		if (typeof str === 'undefined' || str === '') {
+  			if (!('config' in cli.flags)) {
+  				console.log(chalk.red.bold('No input from stdin'));
+  			}
+  			// @TODO throw error code
+  			return;
+  		}
+  		// console.log(chalk.green.bold('Pasting from stdin'));
+      let data = pastey.encrypt(str, 'text/plain');
+      pastey.submit(data, url)
+        .then(function(result) {
+          log(chalk.white.bold(result.url));
+        })
+        .catch(function(error) {
+          log(chalk.red.bold(error));
+        });
+    });
 }
 else {
-  console.log('not TTY');
-  process.stdin.on('readable', function() {
-      var chunk = this.read();
-      if (chunk !== null) {
-         content += chunk;
-      }
-  });
-  process.stdin.on('end', function() {
-    console.log(content);
-    program.parse(process.argv);
-  });
+  let filename = cli.input[0];
+  let contents = fs.readFileSync(filename, 'utf8');
+  let mimetype = mime.lookup(filename);
+  let data = pastey.encrypt(contents, mimetype);
+  pastey.submit(data, url)
+	        .then(function(result) {
+	          console.log(chalk.white.bold(result.url));
+	        });
 }
