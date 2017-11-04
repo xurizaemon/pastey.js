@@ -4,14 +4,15 @@
 
 'use strict';
 
-const meow = require('meow');
-const chalk = require('chalk');
-const fs = require('fs');
-const Conf = require('conf');
-const getStdin = require('get-stdin');
-const pastey = require('../lib/pastey.js');
-const mime = require('mime-types');
-const log = console.log;
+const chalk = require('chalk'),
+  Conf = require('conf'),
+  Datauri = require('datauri'),
+  fs = require('fs'),
+  getStdin = require('get-stdin'),
+  meow = require('meow'),
+  pastey = require('../lib/pastey.js'),
+  mime = require('mime-types'),
+  log = console.log;
 
 const config = new Conf();
 
@@ -54,12 +55,12 @@ if (cli.input.length == 0 || cli.input[0] == '--') {
     .then(str => {
       if (typeof str === 'undefined' || str === '') {
         if (!('config' in cli.flags)) {
-          console.log(chalk.red.bold('No input from stdin'));
+          log(chalk.red.bold('No input from stdin'));
         }
         // @TODO throw error code
         return;
       }
-      // console.log(chalk.green.bold('Pasting from stdin'));
+      // log(chalk.green.bold('Pasting from stdin'));
       let data = pastey.encrypt(str, 'text/plain');
       pastey.submit(data, url)
         .then(function(result) {
