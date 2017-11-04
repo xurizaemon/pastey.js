@@ -24,17 +24,16 @@ This will save the configuration to ~/.config/pastey-nodejs/config.json for futu
 
 ## Usage
 
-### Example
+Once configured, you can paste files by filename (including images) or by STDIN (text only).
 
-    $ pastey "this is some text"
-    http://pastey.example/ec43c7#4ljVqnjpuRSmVrauLx/woA
-
-### Paste a file
+### Paste a file (text, image)
 
     $ pastey words.txt
     http://pastey.example/gu4SV275ThOGBNXl#0IURwZ2WC7VgvqHSJSfdqA
+    $ pastey image.png
+    http://pastey.example/NakdWombnx6hFCCX#XSl3PhOH9zyVoiqCKqVEzQ
 
-### Stdin (text only)
+### Stdin (text)
 
     $ ls | pastey
     http://pastey.example/vAkHQcdV0R8pfGkS#lmi1jUgpsNtdBgiX0pAw/g
