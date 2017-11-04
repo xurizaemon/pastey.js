@@ -73,11 +73,18 @@ if (cli.input.length == 0 || cli.input[0] == '--') {
 }
 else {
   let filename = cli.input[0];
-  let contents = fs.readFileSync(filename, 'utf8');
   let mimetype = mime.lookup(filename);
-  let data = pastey.encrypt(contents, mimetype);
+	let contents = '';
+	if (mimetype.startsWith('image/')) {
+		let datauri = new Datauri(filename);
+		contents = datauri.content;
+	}
+	else {
+		contents = fs.readFileSync(filename, 'utf8');
+	}
+	let data = pastey.encrypt(contents, mimetype);
   pastey.submit(data, url)
           .then(function(result) {
-            console.log(chalk.white.bold(result.url));
+            log(chalk.white.bold(result.url));
           });
 }
