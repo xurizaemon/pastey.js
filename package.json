@@ -1,6 +1,6 @@
 {
   "name": "pastey",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Pastey is a client for an encrypted pastebin.",
   "main": "index.js",
   "scripts": {
