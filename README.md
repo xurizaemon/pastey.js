@@ -4,9 +4,9 @@ Pastey is a client for an encrypted pastebin like [fincham/paste](https://github
 
 An encrypted pastebin means the pastebin service doesn't see the pastebin data - decryption happens in your browser, based on the encrypted paste data and a key only the browser sees.
 
-## Dependencies
+## Requirements
 
-    node (6+), npm
+* A version of NodeJS with ES6 support
 
 ## Installation
 
