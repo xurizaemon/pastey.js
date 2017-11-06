@@ -35,7 +35,7 @@ Once configured, you can paste files by filename (including images) or by STDIN 
 
 ### Stdin (text)
 
-    $ ls | pastey
+    $ git diff | pastey
     http://pastey.example/vAkHQcdV0R8pfGkS#lmi1jUgpsNtdBgiX0pAw/g
 
 ## Alternatives
