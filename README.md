@@ -38,6 +38,10 @@ Once configured, you can paste files by filename (including images) or by STDIN 
     $ git diff | pastey
     http://pastey.example/vAkHQcdV0R8pfGkS#lmi1jUgpsNtdBgiX0pAw/g
 
+### Context menus
+
+To make it easy to paste a file from GUI, check recipe(s) in [`docs/integrations.md`](https://github.com/xurizaemon/pastey/blob/master/docs/integrations.md). Additions welcome for your preferred environment :)
+
 ## Alternatives
 
 * [PrivateBin/PrivateBin](https://github.com/PrivateBin/PrivateBin) + [PrivateBin/PrivateBin-Cli](https://github.com/PrivateBin/PrivateBin-Cli)
