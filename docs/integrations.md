@@ -2,7 +2,7 @@
 
 ## Right-click from Nautilus file manager
 
-Add the following script to `~/.local/share/nautilus/scripts/Pastey`:
+Add the following executable script to `~/.local/share/nautilus/scripts/Pastey`:
 
     #!/bin/bash
 
