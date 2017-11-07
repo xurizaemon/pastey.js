@@ -1,5 +1,7 @@
 # Integrations
 
+If you've worked out how to get Pastey to connect to your file manager, automotive HUD or IoT vegetables in an interesting way, please help expand this document :) 
+
 ## Right-click from Nautilus file manager
 
 Add the following executable script to `~/.local/share/nautilus/scripts/Pastey`:
