@@ -8,6 +8,10 @@ Add the following executable script to `~/.local/share/nautilus/scripts/Pastey`:
 
     #!/bin/bash
 
+    ## Uncomment the below to load nvm.sh
+    # export NVM_DIR="$HOME/.nvm"
+    # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
     IFS_BAK=$IFS
     IFS="
     "
@@ -22,4 +26,5 @@ Add the following executable script to `~/.local/share/nautilus/scripts/Pastey`:
     done
 
 * Requires xclip and notify-send
-* Only works with first selected file.
+* Only works with first selected file
+* See comment in script if you use `nvm` (#8)
