@@ -47,6 +47,22 @@ if ('config' in cli.flags) {
   log(chalk.green('Config saved'));
 }
 
+if ('decrypt' in cli.flags || 'key' in cli.flags) {
+  if (!('decrypt' in cli.flags) || !('key' in cli.flags)) {
+    log(chalk.red.bold(' Both decrypt and key strings must be passed to decrypt.'));
+    log(cli.help);
+    return;
+  }
+  try {
+    let decrypted = pastey.decrypt(cli.flags.decrypt, cli.flags.key);
+    log(chalk.green(decrypted));
+  }
+  catch (error) {
+    log(chalk.red.bold(error));
+  };
+  return;
+}
+
 let url = config.get('url', process.env.PASTEYURL || 'http://localhost:5000/');
 let str = '';
 
