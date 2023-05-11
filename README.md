@@ -1,6 +1,6 @@
 # Pastey
 
-Pastey is a client for an encrypted pastebin like [fincham/paste](https://github.com/fincham/paste).
+Pastey is a client for an encrypted pastebin like [fincham/paste](https://git.sr.ht/~fincham/paste/).
 
 An encrypted pastebin means the pastebin service doesn't see the pastebin data - decryption happens in your browser, based on the encrypted paste data and a key only the browser sees.
 
@@ -14,7 +14,7 @@ An encrypted pastebin means the pastebin service doesn't see the pastebin data -
 
 ## Configuration
 
-The only configuration so far is the URL of your paste server. Perhaps your company runs a paste server, or you can run [fincham/paste](https://github.com/fincham/paste) yourself.
+The only configuration so far is the URL of your paste server. Perhaps your company runs a paste server, or you can run [fincham/paste](https://git.sr.ht/~fincham/paste/) yourself.
 
 To configure:
 
